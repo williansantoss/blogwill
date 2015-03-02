@@ -19,11 +19,16 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		//Css
 	
 		$view->headLink()->prependStylesheet('css/bootstrap.css');
+		$view->headLink()->prependStylesheet('../css/bootstrap.css');
 	
+		$view->headLink()->prependStylesheet('../css/bootstrap-responsive.css');
 		$view->headLink()->prependStylesheet('css/bootstrap-responsive.css');			
 		//Js
 	   $view->headScript()->prependFile('js/jquery-2.1.3.min.js');
 		$view->headScript()->prependFile('js/bootstrap.min.js');
+        
+	   $view->headScript()->prependFile('../js/jquery-2.1.3.min.js');
+		$view->headScript()->prependFile('../js/bootstrap.min.js');
 				
 	}
 
