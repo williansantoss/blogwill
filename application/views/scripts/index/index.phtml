@@ -1,4 +1,3 @@
-
 <html>
 <head>
 <div id="fb-root"></div>
@@ -14,7 +13,6 @@
 </script>
 </head>
 <body role="document">
-
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -31,11 +29,14 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="index">Início</a></li>
 					<li><a href="sobre/sobre">Sobre</a></li>
+                    <li><a href="atuacao/atuacao">Áreas de Atuação</a></li>
 					<li><a href="contato/contato">Contato</a></li>
 				</ul>
-			</div>
-			<!--/.nav-collapse -->
-		</div>
+                <div class="text-right">
+                    <a id="" href="#">Login</a>         
+                </div>
+			</div>             		           
+		</div>        
 	</nav>
 	<div style="height: 70px;" class="row col-md-12"></div>
 	<div class="container theme-showcase" role="main">
@@ -50,68 +51,80 @@
 
 			</div>
 			<div class="col-md-4">
-				<h2>Curta nossa página</h2>
-				<div id="likeBox">
-					<div class="fb-like-box"
-						data-href="https://www.facebook.com/pages/Blog-do-WiLL/238490342849383?ref=hl"
-						data-width="" data-height="" data-show-faces="true"
-						data-colorscheme="dark" data-stream="false"
-						data-border-color="false" data-header="true"></div>
-				</div>
+                <div class="col-md-12">
+                    <div class="row text-center">
+                    <div class="col-lg-4">
+                      <a href="#"><img class="img-circle" src="img/googleplus.jpg" alt="Imagem direito trabalho" style="width: 40px; height: 40px;"></a>                      
+                    </div>
+                    <div class="col-lg-4">
+                      <a href="#"><img class="img-circle" src="img/twitter.jpg" alt="Imagem direito previdenciario" style="width: 40px; height: 40px;"></a>                      
+                    </div>
+                    <div class="col-lg-4">
+                      <a href="#"><img class="img-circle" src="img/facebook.jpg" alt="Imagem direito civil" style="width: 40px; height: 40px;"></a>                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+    				<h2 class="text-center">Curta nossa página</h2>
+    				<div id="likeBox">
+    					<div class="fb-like-box"
+    						data-href="https://www.facebook.com/pages/Blog-do-WiLL/238490342849383?ref=hl"
+    						data-width="300px" data-height="220px" data-show-faces="true"
+    						data-colorscheme="dark" data-stream="false"
+    						data-border-color="false" data-header="true"></div>
+    				</div>
+                </div>
 			</div>
 		</div>
-
+        
+            <?php foreach ($this->noticias as $noticias){ ?>             
+           
+        
 		<div class="page-header">
 			<h1>Notícias</h1>
 		</div>
+        <div class="row">
+            <div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+                        <div class="text-left">
+						  <h3 class="panel-title"><?php echo $noticias->titulo;?></h3>
+                        </div>
+                        <div class="text-right">
+                            <span>Autor: </span><?php echo $noticias->autor_noticia;?>
+                        </div>
+					</div>
+					<div class="panel-body"><?php echo $noticias->descricao_resumo;?></div>
+				</div>			
+			</div>
+        </div>
 		<div class="row">
 			<div class="col-md-4">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<h3 class="panel-title">Notícia 1</h3>
 					</div>
 					<div class="panel-body">Panel content</div>
 				</div>
-				<div class="panel panel-primary">
+            </div>
+            <div class="col-md-4">    
+				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3 class="panel-title">Notícia 2</h3>
 					</div>
 					<div class="panel-body">Panel content</div>
 				</div>
-			</div>
-			<!-- /.col-md-4 -->
+			</div>			
 			<div class="col-md-4">
 				<div class="panel panel-success">
 					<div class="panel-heading">
 						<h3 class="panel-title">Notícia 3</h3>
 					</div>
 					<div class="panel-body">Panel content</div>
-				</div>
-				<div class="panel panel-info">
-					<div class="panel-heading">
-						<h3 class="panel-title">Notícia 4</h3>
-					</div>
-					<div class="panel-body">Panel content</div>
-				</div>
-			</div>
-			<!-- /.col-md-4 -->
-			<div class="col-md-4">
-				<div class="panel panel-warning">
-					<div class="panel-heading">
-						<h3 class="panel-title">Notícia 5</h3>
-					</div>
-					<div class="panel-body">Panel content</div>
-				</div>
-				<div class="panel panel-danger">
-					<div class="panel-heading">
-						<h3 class="panel-title">Notícia 6</h3>
-					</div>
-					<div class="panel-body">Panel content</div>
-				</div>
-			</div>
-			<!-- /.col-md-4 -->
+				</div>				
+			</div>		
 		</div>
-
+<?php }?>
 		<div class="page-header">
 			<h1>Galeria de Imagens</h1>
 		</div>
@@ -146,6 +159,7 @@
 		</div>
 		<hr>
 		<footer class="footer">
+            <strong><p class="pull-right"><a href="#">Voltar ao topo</a></p></strong>
 			<p>&copy; Company 2015</p>
 		</footer>
 	</div>
