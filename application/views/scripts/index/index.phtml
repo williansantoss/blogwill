@@ -65,66 +65,43 @@
                   </div>
                 </div>
                 <div class="col-md-12">
-    				<h2 class="text-center">Curta nossa página</h2>
-    				<div id="likeBox">
-    					<div class="fb-like-box"
+    				<h2 class="text-center">Curta nossa página</h2>                    
+    				<div class="text-center" id="likeBox">
+    					<div class="fb-like-box text-center"
     						data-href="https://www.facebook.com/pages/Blog-do-WiLL/238490342849383?ref=hl"
-    						data-width="300px" data-height="220px" data-show-faces="true"
+    						data-width="250" data-height="230" data-show-faces="true"
     						data-colorscheme="dark" data-stream="false"
     						data-border-color="false" data-header="true"></div>
-    				</div>
+    				</div>                   
                 </div>
 			</div>
 		</div>
-        
-            <?php foreach ($this->noticias as $noticias){ ?>             
-           
-        
 		<div class="page-header">
 			<h1>Notícias</h1>
 		</div>
-        <div class="row">
-            <div class="col-md-12">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-                        <div class="text-left">
-						  <h3 class="panel-title"><?php echo $noticias->titulo;?></h3>
-                        </div>
-                        <div class="text-right">
-                            <span>Autor: </span><?php echo $noticias->autor_noticia;?>
-                        </div>
-					</div>
-					<div class="panel-body"><?php echo $noticias->descricao_resumo;?></div>
-				</div>			
-			</div>
-        </div>
-		<div class="row">
-			<div class="col-md-4">
-				<div class="panel panel-primary">
-					<div class="panel-heading">
-						<h3 class="panel-title">Notícia 1</h3>
-					</div>
-					<div class="panel-body">Panel content</div>
+        <?php 
+            $cont = 1;
+            foreach ($this->noticias as $noticias){
+                $cont == '1' ? $t = "col-md-12 row":$t = "col-md-4"; 
+        ?>  
+        <div class="<?php echo $t;?>">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+                    <div class="text-left">
+					  <h3 class="panel-title"><?php echo $noticias->titulo;?></h3>
+                    </div>
+                    <div class="text-right">
+                        <span>Autor: </span><?php echo $noticias->autor_noticia;?>
+                    </div>
 				</div>
-            </div>
-            <div class="col-md-4">    
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="panel-title">Notícia 2</h3>
-					</div>
-					<div class="panel-body">Panel content</div>
-				</div>
+				<div class="panel-body"><?php echo $noticias->descricao_resumo;?></div>
 			</div>			
-			<div class="col-md-4">
-				<div class="panel panel-success">
-					<div class="panel-heading">
-						<h3 class="panel-title">Notícia 3</h3>
-					</div>
-					<div class="panel-body">Panel content</div>
-				</div>				
-			</div>		
-		</div>
-<?php }?>
+		</div>        
+        <?php 
+            $cont++;
+            }
+        ?>
+        <div class="col-md-12 row">
 		<div class="page-header">
 			<h1>Galeria de Imagens</h1>
 		</div>
@@ -157,11 +134,14 @@
 				<span class="sr-only">Next</span>
 			</a>
 		</div>
-		<hr>
-		<footer class="footer">
-            <strong><p class="pull-right"><a href="#">Voltar ao topo</a></p></strong>
-			<p>&copy; Company 2015</p>
-		</footer>
+        </div>
+        <div class="col-md-12 row">
+    		<hr>
+    		<footer class="footer">
+                <strong><p class="pull-right"><a href="#">Voltar ao topo</a></p></strong>
+    			<p>&copy; Company 2015</p>
+    		</footer>
+        </div>
 	</div>
 	<!-- /container -->
 </body>
