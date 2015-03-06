@@ -23,6 +23,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             $view->headLink()->prependStylesheet('../css/bootstrap-responsive.css');
             $view->headLink()->prependStylesheet('css/bootstrap-responsive.css');
             $view->headScript()->prependFile('../js/bootstrap.min.js');
+            $view->headScript()->prependFile('js/jquery.gmap-1.1.0-min.js');
+            $view->headScript()->prependFile('../js/jquery.gmap-1.1.0-min.js');
             $view->headScript()->prependFile('https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js'); 
             
        if (strstr($_SERVER["HTTP_USER_AGENT"], "MSIE")) {        
