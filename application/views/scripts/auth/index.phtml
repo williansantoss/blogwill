@@ -1,0 +1,7 @@
+<link href="css/login.css" rel="stylesheet">
+<div class="container">
+<div class="text-center text-danger">
+    <?php echo utf8_decode(( sizeof( $this->messages ) > 0 ) ? $this->messages[0] : ""); ?>
+</div>
+<?php echo $this->form; ?>
+</div>
