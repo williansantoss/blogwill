@@ -31,6 +31,11 @@ class Aplicacao_Acl_Setup
     {
         $this->_acl->addResource( new Zend_Acl_Resource('auth') );
         $this->_acl->addResource( new Zend_Acl_Resource('error') );
+        $this->_acl->addResource( new Zend_Acl_Resource('index') );
+        $this->_acl->addResource( new Zend_Acl_Resource('sobre') );
+        $this->_acl->addResource( new Zend_Acl_Resource('atuacao') );
+        $this->_acl->addResource( new Zend_Acl_Resource('contato') );
+        $this->_acl->addResource( new Zend_Acl_Resource('arearestrita') );
         $this->_acl->addResource( new Zend_Acl_Resource('noticias') );
         $this->_acl->addResource( new Zend_Acl_Resource('usuarios') );
     }
@@ -38,8 +43,10 @@ class Aplicacao_Acl_Setup
     protected function _setupPrivileges()
     {
         $this->_acl->allow( 'guest', 'auth', array('index', 'login') )
+                   ->allow( 'guest', array('index', 'sobre','atuacao', 'contato' ))
                    ->allow( 'guest', 'error', array('error', 'forbidden') );
         $this->_acl->allow( 'writer', 'noticias', array('index', 'adicionar') )
+                   ->allow( 'writer', 'arearestrita', array('index','sobre','contato','atuacao'))
                    ->allow( 'writer', 'auth', 'logout' );
         $this->_acl->allow( 'admin', 'usuarios', array('index', 'adicionar') );
     }

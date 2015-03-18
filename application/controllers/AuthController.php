@@ -5,12 +5,17 @@ class AuthController extends Zend_Controller_Action
 
     public function init()
     {
-        
+
     }
 
     public function indexAction()
     {
-         $this->_flashMessenger = $this->_helper->getHelper('FlashMessenger');
+        $identity = Zend_Auth::getInstance()->getStorage()->read();
+        if ($identity != null) {
+            return $this->_helper->redirector->goToRoute(array('controller' =>
+                    'arearestrita'), null, true);
+        }
+        $this->_flashMessenger = $this->_helper->getHelper('FlashMessenger');
         $this->view->messages = $this->_flashMessenger->getMessages();
         $form = new Form_Login();
         $this->view->form = $form;
@@ -25,7 +30,8 @@ class AuthController extends Zend_Controller_Action
                 try {
                     Model_Auth::login($login, $senha);
                     //Redireciona para o Controller protegido
-                    return $this->_helper->redirector->goToRoute(array('controller' => 'noticias'), null, true);
+                    return $this->_helper->redirector->goToRoute(array('controller' =>
+                            'arearestrita'), null, true);
                 }
                 catch (exception $e) {
                     //Dados inválidos
@@ -37,8 +43,8 @@ class AuthController extends Zend_Controller_Action
                 $form->populate($data);
             }
         }
-        
-    }    
+
+    }
     public function logoutAction()
     {
         $auth = Zend_Auth::getInstance();
