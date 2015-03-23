@@ -12,7 +12,7 @@ class ArearestritaController extends Zend_Controller_Action
     {
         // action body
     }
-    public function sobreAction()
+    public function tablesAction()
     {
         // action body
     }

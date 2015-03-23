@@ -46,7 +46,7 @@ class Aplicacao_Acl_Setup
                    ->allow( 'guest', array('index', 'sobre','atuacao', 'contato' ))
                    ->allow( 'guest', 'error', array('error', 'forbidden') );
         $this->_acl->allow( 'writer', 'noticias', array('index', 'adicionar') )
-                   ->allow( 'writer', 'arearestrita', array('index','sobre','contato','atuacao'))
+                   ->allow( 'writer', 'arearestrita', array('index','tables','contato','atuacao'))
                    ->allow( 'writer', 'auth', 'logout' );
         $this->_acl->allow( 'admin', 'usuarios', array('index', 'adicionar') );
     }
