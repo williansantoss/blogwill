@@ -10,7 +10,25 @@ class ArearestritaController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+        $tabTextoPrincipal = new Application_Model_Textoprincipal();
+        $texto = $tabTextoPrincipal->listar();
+        $this->view->textoprincipal = $texto;
+        
+        $principal = $this->_getParam('principal');
+        if($principal == '1'){
+            $ID = $this->_getParam('id');
+            $tituloPrincipal = $this->_getParam('titulop');
+            $contentP = $this->_getParam('contentp');
+            
+            $values = array(
+			    	'ini_titulo' => $tituloPrincipal,
+				    'ini_descricao' => $contentP
+            );				
+            $linhasatualizada = $tabTextoPrincipal->update($values, 'id ='.$ID);
+        }
+        
+        
+        
     }
     public function sobreAction()
     {
