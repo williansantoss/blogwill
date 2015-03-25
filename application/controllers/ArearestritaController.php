@@ -23,12 +23,13 @@ class ArearestritaController extends Zend_Controller_Action
             $values = array(
 			    	'ini_titulo' => $tituloPrincipal,
 				    'ini_descricao' => $contentP
-            );				
-            $linhasatualizada = $tabTextoPrincipal->update($values, 'id ='.$ID);
+            );			
+            if($ID){	
+                $linhasatualizada = $tabTextoPrincipal->update($values, 'id ='.$ID);
+            }else{
+                $linhasinseridas = $tabTextoPrincipal->insert($values);
+            }    
         }
-        
-        
-        
     }
     public function sobreAction()
     {

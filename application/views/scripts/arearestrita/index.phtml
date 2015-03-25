@@ -153,10 +153,10 @@ tinymce.init({
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="arearestrita"><i class="fa fa-home fa-fw"></i> PÃ¡gina Principal</a>
+                            <a href="arearestrita"><i class="fa fa-home fa-fw"></i> Página Principal</a>
                         </li>
                         <li>
-                            <a href="arearestrita/atuacao"><i class="fa fa-bar-chart-o fa-fw"></i> AtuaÃ§Ã£o</a>
+                            <a href="arearestrita/atuacao"><i class="fa fa-bar-chart-o fa-fw"></i> Atuação</a>
                         </li>                        
                         <li>
                             <a href="arearestrita/sobre"><i class="fa fa-table fa-fw"></i> Sobre</a>
@@ -174,7 +174,7 @@ tinymce.init({
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">PÃ¡gina Principal</h1>
+                    <h1 class="page-header">Página Principal</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>           
@@ -191,11 +191,11 @@ tinymce.init({
                                 <input type="hidden" id="id" name="id" value="1"/>
                                 <div style="padding:15px;" class="row">
                                     <div class="row col-lg-12">
-                                        <span>TÃ­tulo Principal: </span><input id="titulop" name="titulop" value="<?php if($this->textoprincipal){foreach ($this->textoprincipal as $textop){echo $textop->ini_titulo;}}?>"/>
+                                        <span>Título Principal: </span><input id="titulop" name="titulop" value="<?php if($this->textoprincipal){foreach ($this->textoprincipal as $textop){echo $textop->ini_titulo;}}?>"/>
                                     </div>  
                                     <div class="row col-lg-12">  
                                         <span>Texto: </span>
-                                        <textarea name="contentp" style="width:100%"><?php if($this->textoprincipal){foreach ($this->textoprincipal as $textop){echo $textop->ini_descricao;}}?></textarea>
+                                        <textarea name="contentp" style="width:100%"><?php if($this->textoprincipal){foreach ($this->textoprincipal as $textop){ echo utf8_decode($textop->ini_descricao);}}?></textarea>
                                     </div>
                                     <div class="row col-lg-12 text-right">
                                         <input class="btn btn-success" type="submit" value="Salvar"/>
@@ -208,13 +208,13 @@ tinymce.init({
                     <!-- /.panel -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> NotÃ­cias
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Notícias
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div style="padding:15px;" class="row">
                                 <div class="row col-lg-12">
-                                    <span>TÃ­tulo: </span><input />
+                                    <span>Título: </span><input />
                                 </div>  
                                 <div class="row col-lg-12">  
                                     <span>Texto: </span>

@@ -7,5 +7,5 @@ class Application_Model_Noticias extends Zend_Db_Table_Abstract {
 			return $this->fetchAll ();
 		} catch ( Exception $e ) {
 		}
-	}
+	}	
 }

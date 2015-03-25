@@ -75,7 +75,7 @@
 		
 			<div class="jumbotron col-md-8">
 				<h1><?php if($this->textoprincipal){foreach ($this->textoprincipal as $textop){echo $textop->ini_titulo;}}?></h1>
-				<p><?php if($this->textoprincipal){foreach ($this->textoprincipal as $textop){echo $textop->ini_descricao;}}?></p>
+				<p><?php if($this->textoprincipal){foreach ($this->textoprincipal as $textop){echo utf8_decode($textop->ini_descricao);}}?></p>
 
 			</div>
 			<div class="col-md-4">
@@ -97,7 +97,7 @@
     				<div class="text-center" id="likeBox">
     					<div class="fb-like-box text-left"
     						data-href="https://www.facebook.com/pages/Blog-do-WiLL/238490342849383?ref=hl"
-    						min-width="180" data-height="195" data-show-faces="true"
+    						min-width="180" data-height="210" data-show-faces="true"
     						data-colorscheme="dark" data-stream="false"
     						data-border-color="false" data-header="true"></div>
     				</div>                   
@@ -131,11 +131,11 @@
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4 class="timeline-title"><?php echo utf8_decode($noticias->titulo); ?></h4>
-                                    <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
+                                    <p><small class="text-muted"><i class="fa fa-clock-o"></i> Em <?php echo utf8_decode($noticias->data_noticia); ?> por <?php echo utf8_decode($noticias->autor_noticia); ?></small>
                                     </p>
                                 </div>
                                 <div class="timeline-body">
-                                    <p><?php echo utf8_decode("$noticias->descricao_resumo"); ?>...</p>                                            
+                                    <p><?php echo utf8_decode($noticias->descricao_resumo); ?>...</p>                                            
                                 </div>
                                 <div class="text-right">
                                     <p><a class="btn btn-default btn-outline " role="button">Leia mais...</a></p>
@@ -149,6 +149,8 @@
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4 class="timeline-title"><?php echo $noticias->titulo; ?></h4>
+                                    <p><small class="text-muted"><i class="fa fa-clock-o"></i> Em <?php echo utf8_decode($noticias->data_noticia); ?> por <?php echo utf8_decode($noticias->autor_noticia); ?></small>
+                                    </p>
                                 </div>
                                 <div class="timeline-body">
                                     <p><?php echo utf8_decode("$noticias->descricao_resumo"); ?>...</p>                                            
