@@ -62,6 +62,11 @@ class Aplicacao_Plugin_Auth extends Zend_Controller_Plugin_Abstract
                     $action = 'index';
                     $module = 'default';
                     break;
+                case "noticias":
+                    $controller = 'noticias';
+                    $action = 'index';
+                    $module = 'default';
+                    break;
                 default:
                     $controller = $this->_notLoggedRoute['controller'];
                     $action = $this->_notLoggedRoute['action'];
