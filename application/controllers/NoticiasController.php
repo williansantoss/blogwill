@@ -10,7 +10,9 @@ class NoticiasController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+         $tabNoticiasc = new Application_Model_Noticiascompletas();
+         $noticias = $tabNoticiasc->listar();
+         $this->view->noticias = $noticias;
     }
 
     public function adicionarAction()

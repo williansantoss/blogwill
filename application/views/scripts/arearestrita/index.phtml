@@ -1,15 +1,16 @@
 <script type="text/javascript" src="js/tinymce/tinymce.min.js"></script>
 <script type="text/javascript">
-tinymce.init({
-    selector: "textarea",
-    plugins: [
-        "advlist autolink lists link image charmap print preview anchor",
-        "searchreplace visualblocks code fullscreen",
-        "insertdatetime media table contextmenu paste"
-    ],
-    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
-});
+  tinymce.init({
+      selector: "textarea",
+      plugins: [
+          "advlist autolink lists link image charmap print preview anchor",
+          "searchreplace visualblocks code fullscreen",
+          "insertdatetime media table contextmenu paste"
+      ],
+      toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+  });
 </script>
+ 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,11 +49,8 @@ tinymce.init({
     <![endif]-->
 
 </head>
-
 <body>
-
     <div id="wrapper">
-
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -139,22 +137,11 @@ tinymce.init({
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Buscar...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
-                            <!-- /input-group -->
+                        <li>
+                            <a href="arearestrita"><i class="fa fa-home fa-fw"></i> PÃ¡gina Principal</a>
                         </li>
                         <li>
-                            <a href="arearestrita"><i class="fa fa-home fa-fw"></i> Página Principal</a>
-                        </li>
-                        <li>
-                            <a href="arearestrita/atuacao"><i class="fa fa-bar-chart-o fa-fw"></i> Atuação</a>
+                            <a href="arearestrita/atuacao"><i class="fa fa-bar-chart-o fa-fw"></i> AtuaÃ§Ã£o</a>
                         </li>                        
                         <li>
                             <a href="arearestrita/sobre"><i class="fa fa-table fa-fw"></i> Sobre</a>
@@ -172,12 +159,12 @@ tinymce.init({
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Página Principal</h1>
+                    <h1 class="page-header">PÃ¡gina Principal</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>           
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-10">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> Texto Principal                                                      
@@ -186,10 +173,10 @@ tinymce.init({
                         <div class="panel-body">
                             <form id="" name="" action="" method="">
                                 <input type="hidden" id="principal" name="principal" value="<?php if($this->textoprincipal){foreach ($this->textoprincipal as $textop){echo $textop->id;}}?>"/>
-                                <input type="hidden" id="id" name="id" value="1"/>
+                                <input type="hidden" id="id_principal" name="id_principal" value="1"/>
                                 <div style="padding:15px;" class="row">
                                     <div class="row col-lg-12">
-                                        <span>Título Principal: </span><input id="titulop" name="titulop" value="<?php if($this->textoprincipal){foreach ($this->textoprincipal as $textop){echo $textop->ini_titulo;}}?>"/>
+                                        <span>TÃ­tulo Principal: </span><input id="titulop" name="titulop" class="form-control" value="<?php if($this->textoprincipal){foreach ($this->textoprincipal as $textop){echo $textop->ini_titulo;}}?>"/>
                                     </div>  
                                     <div class="row col-lg-12">  
                                         <span>Texto: </span>
@@ -206,23 +193,32 @@ tinymce.init({
                     <!-- /.panel -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Notícias
+                            <i class="fa fa-bar-chart-o fa-fw"></i> NotÃ­cias
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div style="padding:15px;" class="row">
-                                <div class="row col-lg-12">
-                                    <span>Título: </span><input />
-                                </div>  
-                                <div class="row col-lg-12">  
-                                    <span>Texto: </span>
-                                    <textarea name="content" style="width:100%"></textarea>
+                             <form id="" name="" action="" method="">
+                                <div style="padding:15px;" class="row">
+                                    <input type="hidden" id="id_noticia" name="id_noticia" value="1"/>
+                                    <div class="row col-lg-4">
+                                        <span>TÃ­tulo: </span><input id="titulo" name="titulo" class="form-control" />
+                                    </div>
+                                    <div class="row col-lg-4">
+                                        <span>Data: </span><input id="data" name="data" class="form-control" value=""/>
+                                    </div> 
+                                    <div class="row col-lg-4">
+                                        <span>Autor: </span><input id="autor" name="autor" class="form-control" />
+                                    </div>  
+                                    <div class="row col-lg-12">  
+                                        <span>Texto: </span>
+                                        <textarea name="content" style="width:100%"></textarea>
+                                    </div>
+                                    <div class="row col-lg-12 text-right">
+                                        <input class="btn btn-success" type="submit" value="Salvar"/>
+                                    </div>  
                                 </div>
-                                <div class="row col-lg-12 text-right">
-                                    <input class="btn btn-success" type="submit" value="Salvar"/>
-                                </div>  
-                            </div>
-                            <!-- /.row -->
+                                <!-- /.row -->
+                             </form>   
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -271,9 +267,6 @@ tinymce.init({
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-8 -->
-                <div class="col-lg-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bell fa-fw"></i> Redes Sociais
@@ -289,7 +282,7 @@ tinymce.init({
                     </div>
                     <!-- /.panel -->                   
                 </div>
-                <!-- /.col-lg-4 -->
+                
             </div>
             <!-- /.row -->
         </div>
