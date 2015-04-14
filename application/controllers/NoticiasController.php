@@ -13,6 +13,19 @@ class NoticiasController extends Zend_Controller_Action
          $tabNoticiasc = new Application_Model_Noticiascompletas();
          $noticias = $tabNoticiasc->listar();
          $this->view->noticias = $noticias;
+         
+         
+        $page = $this->_getParam('page', 1);    
+ 
+        $paginator = Zend_Paginator::factory($noticias);
+        $paginator->setCurrentPageNumber($page)
+                  ->setItemCountPerPage(1);
+ 
+        Zend_Paginator::setDefaultScrollingStyle('Sliding');
+        Zend_View_Helper_PaginationControl::setDefaultViewPartial('pagination.phtml');
+ 
+        $this->view->assign('paginator', $paginator);
+         
     }
 
     public function adicionarAction()

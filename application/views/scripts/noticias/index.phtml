@@ -3,6 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content=""><!-- CSS -->
+    <link href="../css/noticias.css" rel="stylesheet">
     <link href="css/noticias.css" rel="stylesheet">
 </head>
 <body>
@@ -23,18 +24,24 @@
       </div>
       <div class="row">
         <div class="col-sm-8 blog-main">
-          <div class="blog-post">
-            <h2 class="blog-post-title"><?php if($this->noticias){foreach($this->noticias as $noticias){echo utf8_decode($noticias->titulo_noticia);}}?></h2>
-            <p class="blog-post-meta">January 1, 2014 by <a href="#"><?php if($this->noticias){foreach($this->noticias as $noticias){echo utf8_decode($noticias->autor_noticia);}}?></a></p>
-            <p><?php if($this->noticias){foreach($this->noticias as $noticias){echo utf8_decode($noticias->corpo_noticia);}}?></p>
-            
-          </div><!-- /.blog-post -->
-          <nav>
+          <?php if(sizeof($this->paginator)):?>  
+            <?php foreach($this->paginator as $noticia):?>
+              <div class="blog-post">
+                <h2 class="blog-post-title"><?php echo utf8_decode($noticia->titulo_noticia);?></h2>
+                <p class="blog-post-meta">January 1, 2014 by <a href="#"><?php echo utf8_decode($noticia->autor_noticia);?></a></p>
+                <p><?php echo utf8_decode($noticia->corpo_noticia);?></p>          
+              </div><!-- /.blog-post -->
+            <?php endforeach;?>
+          <?php else: ?>
+            <div>Nenhuma notícia encontrada.</div>
+          <?php endif; ?>
+          <?php echo $this->paginator;?>
+          <!--<nav>
             <ul class="pager">
               <li><a href="#">Anterior</a></li>
               <li><a href="#"><?php echo utf8_decode("Próximo");?></a></li>
             </ul>
-          </nav>
+          </nav>-->
         </div><!-- /.blog-main -->
 
       </div><!-- /.row -->
@@ -42,9 +49,9 @@
     </div><!-- /.container -->
 
     <footer class="blog-footer">
-      <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      <p>Todos os direitos reservados <a href="#">Marra Advocacia</a> by <a href="#">@willian</a>.</p>
       <p>
-        <a href="#">Back to top</a>
+        <a href="#">Voltar ao topo</a>
       </p>
     </footer>
 
@@ -53,7 +60,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>

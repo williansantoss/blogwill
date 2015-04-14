@@ -4,7 +4,12 @@ class Application_Model_Noticias extends Zend_Db_Table_Abstract {
 	protected $_primary = 'id';
 	public function listar() {
 		try {
-			return $this->fetchAll ();
+			$selecao = $this->select();            		     
+            $selecao->order("id DESC")
+                    ->limit(5);
+            $resultado = $this->fetchAll($selecao);
+            
+			return $resultado;
 		} catch ( Exception $e ) {
 		}
 	}	
