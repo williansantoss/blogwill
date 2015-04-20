@@ -14,9 +14,9 @@ class ArearestritaController extends Zend_Controller_Action
         $texto = $tabTextoPrincipal->listar();
         $this->view->textoprincipal = $texto;
         
-        $principal = $this->_getParam('principal');
+        $principal = $this->_getParam('id_principal');
         if($principal == '1'){
-            $ID = $this->_getParam('id');
+            $ID = $this->_getParam('principal');
             $tituloPrincipal = $this->_getParam('titulop');
             $contentP = $this->_getParam('contentp');
             
@@ -30,6 +30,7 @@ class ArearestritaController extends Zend_Controller_Action
                 $linhasinseridas = $tabTextoPrincipal->insert($values);
             }    
         }
+        
         $tabNoticiasc = new Application_Model_Noticiascompletas();
         $tabNoticias = new Application_Model_Noticias();
         
@@ -54,12 +55,51 @@ class ArearestritaController extends Zend_Controller_Action
                 'data_noticia'=>$data_noticia
             );               
              $linhas = $tabNoticias->insert($valores);
-        }
-        
-        
-        
-        
-    }
+        }  
+
+        try{
+            $tabImg = new Application_Model_Carouselimg();          
+            $resultado = $tabImg->listar();
+            $this->view->imagens = $resultado;
+             
+            $formulario = new Application_Form_Uploadimg();
+            
+            $this->view->form = $formulario;
+			// Verifica se foi uma requisição POST
+			if(!$this->_request->isPost())
+			return false;
+
+			// Capturamos aqui o dados enviados via post
+			$data = $this->_request->getPost();
+				
+			// Verifica se os dados do formulário são válidos
+			if( !$formulario->isValid($data) )
+			return false;
+				
+			// Instancia o adaptador do Zend para tranferência de arquivos via
+			// protocolo Http e definine o destino do arquivo
+			$upload_adapter = new Zend_File_Transfer_Adapter_Http();
+			$upload_adapter->setDestination('../imagens');
+			$files = $upload_adapter->getFileInfo();
+			if($files){
+				foreach($files as $arquivo)
+				{
+					$nomeArquivo = $arquivo['name'];
+				}
+			}
+			if($upload_adapter->receive()){                 
+                 $path = "../imagens/".$nomeArquivo;              
+                 $values = array(                                  
+    	   		  'path_img_carousel' => $path    			    
+                );           
+                $linhasinseridas = $tabImg->insert($values);
+			}
+		}catch(Exception $e){
+			$erro = "Erro: ".$e->getMessage();
+			echo $erro;die();
+		}
+    
+    }    
     public function sobreAction()
     {
         // action body
@@ -72,7 +112,27 @@ class ArearestritaController extends Zend_Controller_Action
     {
         // action body
     }
-
+    public function deletarAction()
+	{
+		$this->_helper->viewRenderer->setNoRender();
+		$idImagem = $this->_getParam('idImagem');
+        $tabImg = new Application_Model_Carouselimg();
+		if($idImagem){
+			$resultado = $idImagem->getImagem($idImagem);
+			if (count($resultado) > 0){				
+				foreach ($resultado as $img){
+					$linhadeletada = $tabImg->delete("id =" . $img->id);
+				}
+			}
+		}
+		$retornoAjax = array (
+			'idImagem' => $idImagem
+		);
+		
+		// $this->_response->setBody(json_encode($retornoAjax));
+		echo json_encode ( $retornoAjax );
+	
+	}
 
 }
 
