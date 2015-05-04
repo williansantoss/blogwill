@@ -38,7 +38,7 @@ class ArearestritaController extends Zend_Controller_Action
          if($id_noticia == 1){
              $titulo = $this->_getParam('titulo');
              $corpo_noticia = $this->_getParam('content');
-             $data_noticia = $this->_getParam('data');
+             $data_noticia = date('Ymd');
              $autor_noticia = $this->_getParam('autor');
              $values = array(
 			    	'titulo_noticia' => $titulo,
@@ -48,9 +48,10 @@ class ArearestritaController extends Zend_Controller_Action
             );           
             $linhasinseridas = $tabNoticiasc->insert($values);
             
+            $resumo = substr($corpo_noticia, 0, 199);  
             $valores = array(
                 'titulo' => $titulo,
-                'descricao_resumo'=> $corpo_noticia,
+                'descricao_resumo'=> $resumo,
                 'autor_noticia' => $autor_noticia,
                 'data_noticia'=>$data_noticia
             );               

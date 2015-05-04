@@ -1,4 +1,3 @@
-
 <head>    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,8 +12,8 @@
     <!-- MetisMenu CSS -->
     <link href="bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 
-    <!-- Timeline CSS -->
-    <link href="dist/css/timeline.css" rel="stylesheet">
+    <!-- Timeline CSS 
+    <link href="dist/css/timeline.css" rel="stylesheet">-->
 
     <!-- Custom CSS -->
     <link href="dist/css/sb-admin-2.css" rel="stylesheet">
@@ -32,16 +31,233 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 <div id="fb-root"></div>
-<script>
-	(function(d, s, id) {
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) return;
-		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=369884823067928";
-		fjs.parentNode.insertBefore(js, fjs);
-	}
-	(document, 'script', 'facebook-jssdk'));
-</script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.3&appId=369884823067928";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<style>
+
+    /**
+ * body { background: #333; }*/
+ 
+
+img { border: 0; max-width: 100%; }
+ /**
+.page-header h1 {
+  font-size: 3.26em;
+  text-align: center;
+  color: #efefef;
+  text-shadow: 1px 1px 0 #000;
+}*/
+
+/** timeline box structure **/
+.timeline {
+  list-style: none;
+  padding: 20px 0 20px;
+  position: relative;
+}
+
+.timeline:before {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 3px;
+  background-color: #eee;
+  left: 50%;
+  margin-left: -1.5px;
+}
+
+.tldate {
+  display: block;
+  width: 200px;
+  background: #414141;
+  border: 3px solid #212121;
+  color: #ededed;
+  margin: 0 auto;
+  padding: 3px 0;
+  font-weight: bold;
+  text-align: center;
+  -webkit-box-shadow: 0 0 11px rgba(0,0,0,0.35);
+}
+
+.timeline li {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.timeline li:before, .timeline li:after {
+  content: " ";
+  display: table;
+}
+.timeline li:after {
+  clear: both;
+}
+.timeline li:before, .timeline li:after {
+  content: " ";
+  display: table;
+}
+
+/** timeline panels **/
+.timeline li .timeline-panel {
+  width: 46%;
+  float: left;
+  background: #fff;
+  border: 1px solid #d4d4d4;
+  padding: 20px;
+  position: relative;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
+}
+
+/** panel arrows **/
+.timeline li .timeline-panel:before {
+  position: absolute;
+  top: 26px;
+  right: -15px;
+  display: inline-block;
+  border-top: 15px solid transparent;
+  border-left: 15px solid #ccc;
+  border-right: 0 solid #ccc;
+  border-bottom: 15px solid transparent;
+  content: " ";
+}
+
+.timeline li .timeline-panel:after {
+  position: absolute;
+  top: 27px;
+  right: -14px;
+  display: inline-block;
+  border-top: 14px solid transparent;
+  border-left: 14px solid #fff;
+  border-right: 0 solid #fff;
+  border-bottom: 14px solid transparent;
+  content: " ";
+}
+.timeline li .timeline-panel.noarrow:before, .timeline li .timeline-panel.noarrow:after {
+  top:0;
+  right:0;
+  display: none;
+  border: 0;
+}
+
+.timeline li.timeline-inverted .timeline-panel {
+  float: right;
+}
+
+.timeline li.timeline-inverted .timeline-panel:before {
+  border-left-width: 0;
+  border-right-width: 15px;
+  left: -15px;
+  right: auto;
+}
+
+.timeline li.timeline-inverted .timeline-panel:after {
+  border-left-width: 0;
+  border-right-width: 14px;
+  left: -14px;
+  right: auto;
+}
+
+
+/** timeline circle icons **/
+.timeline li .tl-circ {
+  position: absolute;
+  top: 23px;
+  left: 50%;
+  text-align: center;
+  background: #6a8db3;
+  color: #fff;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  margin-left: -16px;
+  border: 3px solid #90acc7;
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  
+}
+
+
+/** timeline content **/
+
+.tl-heading h4 {
+  margin: 0;
+  color: #c25b4e;
+}
+
+.tl-body p, .tl-body ul {
+  margin-bottom: 0;
+}
+
+.tl-body > p + p {
+  margin-top: 5px;
+}
+
+/** media queries **/
+@media (max-width: 991px) {
+  .timeline li .timeline-panel {
+    width: 44%;
+  }
+}
+
+@media (max-width: 700px) {
+  .page-header h1 { font-size: 1.8em; }
+  
+  ul.timeline:before {
+    left: 40px;
+  }
+  
+  .tldate { width: 140px; }
+
+  ul.timeline li .timeline-panel {
+    width: calc(100% - 90px);
+    width: -moz-calc(100% - 90px);
+    width: -webkit-calc(100% - 90px);
+  }
+
+  ul.timeline li .tl-circ {
+    top: 22px;
+    left: 22px;
+    margin-left: 0;
+
+  }
+  ul.timeline > li > .tldate {
+    margin: 0;
+  }
+
+  ul.timeline > li > .timeline-panel {
+    float: right;
+  }
+
+  ul.timeline > li > .timeline-panel:before {
+    border-left-width: 0;
+    border-right-width: 15px;
+    left: -15px;
+    right: auto;
+  }
+
+  ul.timeline > li > .timeline-panel:after {
+    border-left-width: 0;
+    border-right-width: 14px;
+    left: -14px;
+    right: auto;
+  }
+}
+
+
+</style>
+
 </head>
 <body role="document">
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -74,12 +290,12 @@
 	<div class="container theme-showcase" role="main">
 		<div class="col-md-12">
 		
-			<div class="jumbotron col-md-8">
+			<div class="jumbotron ">
 				<h1><?php if($this->textoprincipal){foreach ($this->textoprincipal as $textop){echo $textop->ini_titulo;}}?></h1>
 				<p><?php if($this->textoprincipal){foreach ($this->textoprincipal as $textop){echo utf8_decode($textop->ini_descricao);}}?></p>
 
 			</div>
-			<div class="col-md-4">
+			<!--<div class="col-md-4">
                 <div class="col-md-12">
                    <div class="row text-center">
                     <div class="col-lg-4">
@@ -95,18 +311,199 @@
                 </div>
                 <div class="col-md-12">
     				<h2 class="text-center"><?php echo utf8_decode("Curta nossa página");?></h2>                    
-    				<div class="text-center" id="likeBox">
-                    	<?php //if($this->codigo)foreach($this->codigo as $codigo){ echo $codigo->codigo;}?>
-    					<div class="fb-like-box text-left"
-    						data-href="https://www.facebook.com/pages/Blog-do-WiLL/238490342849383?ref=hl"
-    						min-width="180" data-height="210" data-show-faces="true"
-    						data-colorscheme="dark" data-stream="false"
-    						data-border-color="false" data-header="true"></div>
-    				</div>                   
+    				<div class="text-left">
+                    	<?php //if($this->codigo)foreach($this->codigo as $codigo){ echo $codigo->codigo;}?>                           
+                        <div class="fb-page" data-href="https://www.facebook.com/pages/Blog-do-WiLL/238490342849383?ref=hl" data-hide-cover="false" data-show-facepile="true" data-show-posts="false">
+                            <div class="fb-xfbml-parse-ignore">
+                                <blockquote cite="https://www.facebook.com/pages/Blog-do-WiLL/238490342849383?ref=hl">
+                                    <a href="https://www.facebook.com/pages/Blog-do-WiLL/238490342849383?ref=hl">Blog do Will</a>
+                                </blockquote>
+                            </div>
+                        </div>
+    				</div>                                      
                 </div>
-			</div>
-		</div>
+			</div>-->
+		</div> 
         <div class="col-md-12">
+        <div class="page-header">
+			<h1><?php echo utf8_decode("Publicações");?></h1>
+		</div> 
+            <ul class="timeline">
+                <?php 
+                    if($this->noticias){ 
+                        foreach($this->noticias as $noticia){
+                            $date = new Zend_Date($noticia->data_noticia,null,"pt_BR");
+                            switch($date->get("MM")){
+                                case 01:
+                                $dt_extenso = "Janeiro";
+                                break;
+                                case 02:
+                                $dt_extenso = "Fevereiro";
+                                break;
+                                case 03:
+                                $dt_extenso = "Março";
+                                break;
+                                case 04:
+                                $dt_extenso = "Abril";
+                                break;
+                                case 05:
+                                $dt_extenso = "Maio";
+                                break;
+                                case 06:
+                                $dt_extenso = "Junho";
+                                break;
+                                case 07:
+                                $dt_extenso = "Julho";
+                                break;
+                                case 08:
+                                $dt_extenso = "Agosto";
+                                break;
+                                case 09:
+                                $dt_extenso = "Setembro";
+                                break;
+                                case 10:
+                                $dt_extenso = "Outubro";
+                                break;
+                                case 11:
+                                $dt_extenso = "Novembro";
+                                break;
+                                case 12:
+                                $dt_extenso = "Dezembro";
+                                break;
+                                
+                            }
+                ?>
+                
+                
+                
+                <li><div class="tldate"><?php echo $dt_extenso."/".$date->get("YYYY");?></div></li>    
+                <?php if(fmod($date->get("MM"),2)== 0){?>            
+                <li>
+                  <div class="tl-circ"></div>
+                  <div class="timeline-panel">
+                    <div class="tl-heading">
+                      <h4><?php echo utf8_decode($noticia->titulo);?></h4>
+                      <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3 hours ago</small></p>
+                    </div>
+                    <div class="tl-body">
+                      <p><?php echo utf8_decode($noticia->descricao_resumo);?></p>
+                    </div>
+                  </div>
+                </li>
+                <?php }else{?>
+                     <li class="timeline-inverted">
+                      <div class="tl-circ"></div>
+                      <div class="timeline-panel">
+                        <div class="tl-heading">
+                          <h4>Breaking into Spring!</h4>
+                          <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 4/07/2014</small></p>
+                        </div>
+                        <div class="tl-body">
+                          <p>Hope the weather gets a bit nicer...</p>
+                            
+                          <p>Y'know, with more sunlight.</p>
+                        </div>
+                      </div>
+                    </li>  
+                    
+                <?php } }?>
+                
+                
+                
+                <li><div class="tldate">Mar 2014</div></li>
+                
+                <li>
+                  <div class="tl-circ"></div>
+                  <div class="timeline-panel">
+                    <div class="tl-heading">
+                      <h4>New Apple Device Release Date</h4>
+                      <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3/22/2014</small></p>
+                    </div>
+                    <div class="tl-body">
+                      <p>In memory of Steve Jobs.</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="timeline-inverted">
+                  <div class="timeline-panel">
+                    <div class="tl-heading">
+                      <h4>No icon here</h4>
+                      <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3/16/2014</small></p>
+                    </div>
+                    <div class="tl-body">
+                      <p>Here you'll find some beautiful photography for your viewing pleasure, courtesy of <a href="http://lorempixel.com/">lorempixel</a>.</p>
+                      
+                      <p><img src="http://lorempixel.com/600/300/nightlife/" alt="lorem pixel"></p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="tl-circ"></div>
+                  <div class="timeline-panel">
+                    <div class="tl-heading">
+                      <h4>Some Important Date!</h4>
+                      <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3/03/2014</small></p>
+                    </div>
+                    <div class="tl-body">
+                      <p>Write up a quick summary of the event.</p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="timeline-panel noarrow">
+                    <div class="tl-heading">
+                      <h4>Secondary Timeline Box</h4>
+                      <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3/01/2014</small></p>
+                    </div>
+                    <div class="tl-body">
+                      <p>This might be a follow-up post with related info. Maybe we include some extra links, tweets, user comments, photos, etc.</p>
+                    </div>
+                  </div>
+                </li>
+                
+                <li><div class="tldate">Feb 2014</div></li>
+                
+                <li class="timeline-inverted">
+                  <div class="tl-circ"></div>
+                  <div class="timeline-panel">
+                    <div class="tl-heading">
+                      <h4>The Winter Months</h4>
+                      <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 02/23/2014</small></p>
+                    </div>
+                    <div class="tl-body">
+                      <p>Gee time really flies when you're having fun.</p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="tl-circ"></div>
+                  <div class="timeline-panel">
+                    <div class="tl-heading">
+                      <h4>Yeah we're pretty much done here</h4>
+                      <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 02/11/2014</small></p>
+                    </div>
+                    <div class="tl-body">
+                      <p>Wasn't this fun though?</p>
+                    </div>
+                  </div>
+                </li>
+                <?php }else{?>                    
+                <li class="timeline-inverted">
+                  <div class="tl-circ"></div>
+                  <div class="timeline-panel">
+                    <div class="tl-heading">
+                      <h4>Nenhuma <?php echo utf8_decode("publicação");?> encontrada.</h4>
+                      <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?php echo date("d/m/Y");?></small></p>
+                    </div>
+                    <div class="tl-body">
+                      <p>Em breve postaremos uma <?php echo utf8_decode("publicação");?>.</p>
+                    </div>
+                  </div>
+                </li>
+               <?php }?>
+              </ul>
+        </div>       
+       <!-- <div class="col-md-12">
             <div class="page-header">
                 <div class="row">
                     
@@ -114,11 +511,11 @@
                                         
                 </div>	
     		</div>	
-            <div class="">                        
-                <!-- /.panel-heading -->
+            <div class="">
                 <div class="panel-body">
                     <ul class="timeline">
                     <?php
+                    if($this->noticias){
                     $cont = 1;
                     foreach ($this->noticias as $noticias) {
                        $r = fmod($cont, 2);
@@ -163,6 +560,10 @@
                         }
                         $cont++;
                     }
+                    }else{?>
+                      <div>Nenhuma <?php echo utf8_decode("notícia");?> encontrada.</div>  
+                        
+                   <?php }
                     ?> 
                     </ul>
                 </div>
@@ -177,7 +578,7 @@
                 </div>
                 <br /><br /><br />                              
           </div>          	
-        </div>
+        </div>-->
         <div class="col-md-12 row">
 		<div class="page-header">
 			<h1>Galeria de Imagens</h1>
@@ -233,3 +634,4 @@
     <script src="dist/js/sb-admin-2.js"></script>
 </body>
 </html>
+
