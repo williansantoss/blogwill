@@ -1,6 +1,6 @@
 <?php
 
-class Model_Usuario implements Zend_Acl_Role_Interface
+class Model_Teste implements Zend_Acl_Role_Interface
 {
 	private $_userName;
 	private $_roleId;
@@ -37,4 +37,5 @@ class Model_Usuario implements Zend_Acl_Role_Interface
 	{
 		$this->_roleId = (string) $roleId;
 	}
+	
 }

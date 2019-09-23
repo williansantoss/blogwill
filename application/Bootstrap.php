@@ -9,9 +9,15 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         return $autoloader;
     }
 
+    protected function _initDbAdapter() {
+        $this->bootstrap('db');
+        $db = $this->getResource('db');
+        Zend_Registry::set('db' , $db);
+    }
+
     protected function _initAcl()
     {
-        $aclSetup = new Aplicacao_Acl_Setup();
+        
     }
     protected function _initDoctype()
     {
@@ -20,9 +26,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         //Doctype
         $view->Doctype('XHTML1_TRANSITIONAL');
         //Css
-        $view->headLink()->prependStylesheet('../css/bootstrap.css');
-        $view->headScript()->prependFile('../js/bootstrap.min.js');
-        $view->headLink()->prependStylesheet('../css/bootstrap-responsive.css');
+        $view->headLink()->prependStylesheet('/css/bootstrap.css');
+        $view->headScript()->prependFile('/js/bootstrap.min.js');
+        $view->headLink()->prependStylesheet('/css/bootstrap-responsive.css');
         
         $view->headLink()->prependStylesheet('css/bootstrap.css');
         $view->headScript()->prependFile('js/bootstrap.min.js');

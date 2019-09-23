@@ -1,0 +1,32 @@
+/*
+Theme Name: RowBootstrap
+Theme URI: http://rowbootstrap.com/
+Description: The theme for the RowBootstrap website.
+Version: 1.0
+Author: Hasibur Rahman
+Author URI: http://bahannodigital.com/
+*/
+
+/*google font*/
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+
+/*Bootstrap core CSS*/
+@import url("css/bootstrap.min.css");
+
+/*Font Awesome CSS*/
+@import url("css/font-awesome.css");
+
+/*lineaicon css*/
+@import url("css/lineaicon.css");
+
+/*slick Slider css*/
+@import url("css/slick.css");
+
+/*magnific Popup css*/
+@import url("css/magnific-popup.css");
+
+/*custom color css*/
+@import url("css/color.css");
+
+/*Style css*/
+@import url("css/style.css");

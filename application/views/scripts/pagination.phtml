@@ -1,7 +1,7 @@
  <!--<nav>
     <ul class="pager">
       <li><a href="#">Anterior</a></li>
-      <li><a href="#"><?php echo utf8_decode("Próximo");?></a></li>
+      <li><a href="#"><?php echo "Próximo";?></a></li>
     </ul>
   </nav>-->
 <?php if ($this->pageCount): ?>
@@ -28,9 +28,9 @@
     <?php endif; ?>
     <!-- Last page link --> 
     <?php if (isset($this->next)): ?>
-        <a href="<?php echo $_SERVER['REQUEST_URI']."?result&page=".$this->last; ?>"> <?php echo utf8_decode("Última");?> </a> 
+        <a href="<?php echo $_SERVER['REQUEST_URI']."?result&page=".$this->last; ?>"> <?php echo "Última";?> </a> 
     <?php else: ?> 
-        <span class="disabled"><?php echo utf8_decode("Última");?></span> <?php endif; ?>
+        <span class="disabled"><?php echo "Última";?></span> <?php endif; ?>
 </div>
 <?php endif; ?>
 
